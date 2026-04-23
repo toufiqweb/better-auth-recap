@@ -6,15 +6,15 @@ import React, { useState } from "react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [toggleBtn, setToggleBtn] = useState(false);
+  // const [toggleBtn, setToggleBtn] = useState(false);
 
   const { data } = authClient.useSession();
 
   const user = data?.user;
 
-  if (user) {
-    setToggleBtn(true);
-  }
+  // if (user) {
+  //   setToggleBtn(true);
+  // }
   const handleSignOut = () => {
     authClient.signOut();
   };
@@ -52,7 +52,7 @@ const NavBar = () => {
               )}
             </svg>
           </button>
-          <div>Logo</div>
+          <div>{user ? user.name : "Logo"}</div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">
           <li>
@@ -64,17 +64,20 @@ const NavBar = () => {
         </ul>
 
         <div>
-          <Link href={"/signup"}>
-            <Button variant="secondary">SignUp</Button>
-          </Link>
-          {toggleBtn ? (
+          {user ? (
             <Button onClick={handleSignOut} variant="danger">
               SignOut
             </Button>
           ) : (
-            <Link href={"/signin"}>
-              <Button variant="secondary">SignIn</Button>
-            </Link>
+            <>
+              <Link href="/signup">
+                <Button variant="secondary">SignUp</Button>
+              </Link>
+
+              <Link href="/signin">
+                <Button variant="secondary">SignIn</Button>
+              </Link>
+            </>
           )}
         </div>
       </header>
