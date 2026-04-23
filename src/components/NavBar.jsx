@@ -1,10 +1,24 @@
-"use client"
+"use client";
+import { authClient } from "@/lib/auth-client";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import React, { useState } from "react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [toggleBtn, setToggleBtn] = useState(false);
+
+  const { data } = authClient.useSession();
+
+  const user = data?.user;
+
+  if (user) {
+    setToggleBtn(true);
+  }
+  const handleSignOut = () => {
+    authClient.signOut();
+  };
+
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
       <header className="flex h-16 items-center justify-between px-6">
@@ -49,7 +63,20 @@ const NavBar = () => {
           </li>
         </ul>
 
-       <Link href={"/signup"}> <Button variant="secondary">Sign Up</Button></Link>
+        <div>
+          <Link href={"/signup"}>
+            <Button variant="secondary">SignUp</Button>
+          </Link>
+          {toggleBtn ? (
+            <Button onClick={handleSignOut} variant="danger">
+              SignOut
+            </Button>
+          ) : (
+            <Link href={"/signin"}>
+              <Button variant="secondary">SignIn</Button>
+            </Link>
+          )}
+        </div>
       </header>
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
