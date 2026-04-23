@@ -49,7 +49,7 @@ const NavBar = () => {
           </li>
         </ul>
 
-        <Button variant="secondary">Sign Up</Button>
+       <Link href={"/signup"}> <Button variant="secondary">Sign Up</Button></Link>
       </header>
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
