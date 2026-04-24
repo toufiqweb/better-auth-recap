@@ -2,18 +2,7 @@
 
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 
-const AddProduct = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const formdata = new FormData(e.currentTarget);
-
-    // const product = formdata.get("name");
-    const productData = Object.fromEntries(formdata.entries())
-
-    console.log(productData);
-  };
-
+const AddProduct = ({ createProduct }) => {
   return (
     <Modal>
       <Button variant="secondary">Add Product</Button>
@@ -32,7 +21,7 @@ const AddProduct = () => {
 
             <Modal.Body className="p-6">
               <Surface variant="default">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <form action={createProduct} className="flex flex-col gap-4">
                   {/* Product Name */}
                   <TextField className="w-full" name="name" type="text">
                     <Label>Product Name</Label>
@@ -75,11 +64,6 @@ const AddProduct = () => {
                     <Input placeholder="Enter stock quantity" />
                   </TextField>
 
-                  {/* Features */}
-                  <TextField className="w-full" name="features" type="text">
-                    <Label>Features</Label>
-                    <Input placeholder="Comma separated features" />
-                  </TextField>
                   <Button slot="close" variant="secondary">
                     Cancel
                   </Button>
@@ -87,8 +71,6 @@ const AddProduct = () => {
                 </form>
               </Surface>
             </Modal.Body>
-
-       
           </Modal.Dialog>
         </Modal.Container>
       </Modal.Backdrop>

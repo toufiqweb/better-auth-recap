@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "category": "Electronics",
+    "brand": "SoundPulse",
+    "price": 49.99,
+    "rating": 4.5,
+    "stock": 120,
+    "features": [
+      "Noise Cancelling",
+      "20h Battery Life",
+      "Bluetooth 5.2"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Smart Fitness Watch",
+    "category": "Wearables",
+    "brand": "FitCore",
+    "price": 79.99,
+    "rating": 4.3,
+    "stock": 85,
+    "features": [
+      "Heart Rate Monitor",
+      "Water Resistant",
+      "Sleep Tracking"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Coffee Maker",
+    "category": "Home Appliances",
+    "brand": "BrewMaster",
+    "price": 39.99,
+    "rating": 4.2,
+    "stock": 150,
+    "features": [
+      "Auto Shut-off",
+      "1.5L Capacity",
+      "Fast Brewing"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Gaming Mechanical Keyboard",
+    "category": "Accessories",
+    "brand": "KeyStrike",
+    "price": 59.99,
+    "rating": 4.7,
+    "stock": 60,
+    "features": [
+      "RGB Lighting",
+      "Blue Switches",
+      "Anti-Ghosting"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Portable Bluetooth Speaker",
+    "category": "Audio",
+    "brand": "BoomBox",
+    "price": 34.99,
+    "rating": 4.4,
+    "stock": 95,
+    "features": [
+      "360° Sound",
+      "12h Battery",
+      "Waterproof"
+    ]
+  }
+]
