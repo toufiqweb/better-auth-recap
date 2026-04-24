@@ -1,8 +1,14 @@
 "use client";
+import ActivityFeed from "@/components/dashboardpage/ActivityFeed";
 import HeroSection from "@/components/dashboardpage/HeroSection";
+import ProfileCard from "@/components/dashboardpage/ProfileCard";
+import Sidebar from "@/components/dashboardpage/Sidebar";
+import StatsSection from "@/components/dashboardpage/StatsSection";
+import WelcomeBanner from "@/components/dashboardpage/WelcomeBanner";
 import Banner from "@/components/homepage/Banner";
 import CtaSection from "@/components/homepage/CtaSection";
 import Features from "@/components/homepage/Features";
+import NavBar from "@/components/NavBar";
 import { authClient } from "@/lib/auth-client";
 
 export default function Home() {
@@ -12,10 +18,32 @@ export default function Home() {
 
   return (
     <>
-      <Banner />
-      <HeroSection/>
-      <Features />
-      <CtaSection />
+      {user ? (
+        <main className="min-h-screen bg-gray-100">
+          <HeroSection />
+
+          <section className="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-4 gap-8">
+            <Sidebar />
+
+            <div className="lg:col-span-3 space-y-8">
+              <WelcomeBanner />
+              <StatsSection />
+
+              <section className="grid lg:grid-cols-3 gap-6">
+                <ActivityFeed />
+                <ProfileCard />
+              </section>
+            </div>
+          </section>
+        </main>
+      ) : (
+        <>
+          <NavBar />
+          <Banner />
+          <Features />
+          <CtaSection />
+        </>
+      )}
     </>
   );
 }
