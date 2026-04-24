@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <section className="bg-linear-to-r from-indigo-600 to-purple-600 text-white">
       <div className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <p className="uppercase tracking-widest text-sm text-indigo-200 mb-3">
